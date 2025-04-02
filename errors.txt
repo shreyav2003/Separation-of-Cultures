@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 95: end of line expected.
-    imagebutton: idle "images/phone.png" action Jump('phoneCall')
-                 ^
+File "game/script.rpy", line 6: invalid syntax
+    Character("Janu" color "#3a1bd1")
+                      ^
 
 Ren'Py Version: Ren'Py 8.3.4.24120703
-Tue Apr  1 12:54:01 2025
+Wed Apr  2 13:25:09 2025

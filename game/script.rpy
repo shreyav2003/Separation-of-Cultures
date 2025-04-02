@@ -3,7 +3,7 @@
 
 define m = Character("Maya")
 define a = Character("Amma")
-
+define j = Character("Janu")
 
 # The game starts here.
 
@@ -14,8 +14,7 @@ label start:
     with fade 
     
     "On a lazy autumn morning, Maya Anderson woke up and got out of her bed."
-    show maya
-    with dissolve
+
     menu:
         "As she put on her slippers she decided to..."
          
@@ -46,8 +45,7 @@ label kitchen:
     with fade
     "Maya went to the kitchen to start her cup of coffee."
 
-    show maya
-    with dissolve
+
 
     "As it was brewing, something caught her eye."
 
@@ -82,6 +80,7 @@ label call:
     with dissolve
 
     "Maya called the number."
+    play sound "audio/dial-tone.mp3" loop
     hide digiphone
     show phone
     with dissolve
@@ -97,7 +96,7 @@ screen imageButton():
 label crumpled:
     play sound "<from 0.0 to 2.0>crumping-paper.mp3"
     scene fridgenn
-    "Maya crumpled up the note and threw it away. She could not believe the audacity her grandmother had after everything."
+    "Maya crumpled up the note and threw it away. She didn't want to deal with Janu Pati today."
 
     "A couple of hours later, her phone started to ring. It was her mother"
     play sound "audio/phone-ringing.mp3" loop
@@ -122,6 +121,7 @@ label phoneCall:
 
     "Maya sighed with frustration. She would not hear the end of it if she didn't call her grandmother."
     show phone
+    play sound "audio/dial-tone.mp3" loop
 
     "Her fingers trembled as she pressed each number, remembering her Janu Pati's comments..."
    
@@ -130,9 +130,42 @@ label phoneCall:
 
 
 label flashback:
+    stop sound
     scene crochetbg
     with fade
-    "Janu used to criticize Maya for every little thing, especially her choices with Kunal."
-    "The sting of those comments echoed in her mind as she dialed the number..."
-    
+    show janucrocheted
+    "Janu could never seem to leave Maya alone. There was always something to say."
+   
+    j "Maya kutty, your hair is so short. Why do you always have to act like them?"
+    j "Maya, it's improper to wear your skirt that short. What will people say? I raised you to be better."
+    menu:
+        "Maya..."
+         
+        "Would fight her grandmother's comments":
+            jump fightFlashback
+
+        "Would stay silent.":
+            jump crumpled
+label fightFlashback:
+    scene crochetredbg
+    show janucrocheted
+    j "Janu Pati, you are extremely disrespectful! I like who I am!"
+    with vpunch
+    j "I don't need your comments to make me feel bad about myself."
+    "Maya would always fight back. She would always stand up for herself."
+    return
+
+label present:
+    scene kitchen
+    show digiphone
+    with dissolve
+    j "Hello?"
+    m "Janu Pati, it's Maya. How are you?"
+    j "I'm glad my granddaughter has finally called her sick grandmother back."
+label present2:
+    scene kitchen
+    show digiphone
+    with hpunch
+    "Maya felt a pang of anger go through her."
+
     return
