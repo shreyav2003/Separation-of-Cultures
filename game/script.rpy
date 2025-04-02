@@ -78,33 +78,36 @@ label fridge:
 
 label call:
     scene fridge
-    show phone
+    show digiphone
     with dissolve
 
     "Maya called the number."
+    hide digiphone
+    show phone
+    with dissolve
     "As the phone rang, her fingers shivered in nervousness as she remembered why she never picks up anymore..."
     
     jump flashback
 
 
 screen imageButton():
-    imagebutton idle "images/phone.png" action Jump('phoneCall') pos (0.5, 0.9) anchor (0.5, 1.0)
+    imagebutton idle "images/digiphone.png" action Jump('phoneCall') pos (0.5, 0.9) anchor (0.5, 1.0)
 
 
 label crumpled:
     play sound "<from 0.0 to 2.0>crumping-paper.mp3"
-    show maya
+    scene fridgenn
     "Maya crumpled up the note and threw it away. She could not believe the audacity her grandmother had after everything."
 
     "A couple of hours later, her phone started to ring. It was her mother"
-    hide maya
     play sound "audio/phone-ringing.mp3" loop
     call screen imageButton
 
 
 
 label phoneCall:
-    scene fridge
+    scene kitchen
+    show maya
     stop sound
 
     m "Hello? Amma?"
@@ -118,9 +121,10 @@ label phoneCall:
     "The phone clicked as her mother hung up."
 
     "Maya sighed with frustration. She would not hear the end of it if she didn't call her grandmother."
+    show phone
 
     "Her fingers trembled as she pressed each number, remembering her Janu Pati's comments..."
-    show phone
+   
     
     jump flashback
 
