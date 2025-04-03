@@ -138,6 +138,7 @@ label flashback:
    
     j "Maya kutty, your hair is so short. Why do you always have to act like them?"
     j "Maya, it's improper to wear your skirt that short. What will people say? I raised you to be better."
+    j "Maya, you cannot raise Kunal like this. "
     menu:
         "Maya..."
          
@@ -145,20 +146,26 @@ label flashback:
             jump fightFlashback
 
         "Would stay silent.":
-            jump crumpled
+            jump silentFlashback
 label fightFlashback:
-    scene crochetredbg
     show janucrocheted
-    j "Janu Pati, you are extremely disrespectful! I like who I am!"
+    m "Janu Pati, you are extremely disrespectful! I like who I am!"
+    scene crochetredbg
     with vpunch
-    j "I don't need your comments to make me feel bad about myself."
-    "Maya would always fight back. She would always stand up for herself."
-    return
+    show janucrocheted
+    j "Who taught you how to speak like this? Was it that husband? I knew it was a bad idea to send you to America."
+    m "Pati please..."
+    j "No! Is this how you're going to raise Kunal? Like a disrespectful American?"
+    jump present
+label silentFlashback:
+    
 
 label present:
     scene kitchen
     show digiphone
     with dissolve
+    "Maya's eyes welled up with tears as she remembered the conversation."
+    play
     j "Hello?"
     m "Janu Pati, it's Maya. How are you?"
     j "I'm glad my granddaughter has finally called her sick grandmother back."
