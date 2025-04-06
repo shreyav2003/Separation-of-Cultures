@@ -6,13 +6,9 @@ define a = Character("Amma")
 define j = Character("Janu")
 
 # The game starts here.
-init python:
-   def drag_placed(drags, drop): 
-       if not drop: 
-           return 
-       store.draggable = drags[0].drag_name
-       store.droppable = drop.drag_name
-       return True
+
+
+
 label start:
     play music "audio/backgroundmusic.mp3"
 
@@ -45,37 +41,23 @@ label kunalBed:
     
     jump kitchen
 
-screen dragKitchen:
-    draggroup:
-        drag:
-            drag_name "mug"
-            child "mug.png"
-            xpos 100 ypos 100
-            draggable True
-            droppable False
-
-        drag:
-            drag_name "coffee"
-            xpos 900 ypos 300
-            child "coffee.png"
-            draggable False
-            droppable True
+screen dragKitchen(): 
+    imagebutton idle "images/mug.png" action Jump('brewing') pos (0.5, 0.9) anchor (0.5, 1.0)
 label kitchen:
-    "Maya went to the kitchen to start her cup of coffee."
     scene kitchen
     call screen dragKitchen
+    "Maya went to the kitchen to start her cup of coffee."
+    # This keeps the screen active until interaction
+
 
 
 label brewing:
+    hide screen dragKitchen
     scene kitchen 
     show coffeemug
-    "As it was brewing, something caught her eye."
-
+    "as it was brewing something on the fridge caught her eye."
     m "Huh? What's this?"
-
-    # Display the note interaction
     jump fridge
-
 
 label fridge:
     stop music fadeout 1.0

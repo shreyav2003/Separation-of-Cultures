@@ -2,26 +2,26 @@
 
 While running game code:
   File "game/script.rpy", line 64, in script
-    call screen dragKitchen
-  File "renpy/common/000statements.rpy", line 671, in execute_call_screen
-    store._return = renpy.call_screen(name, *args, **kwargs)
-TypeError: handle_drop() missing 2 required positional arguments: 'y' and 'dragged'
+    "Maya went to the kitchen to start her cup of coffee."
+TypeError: __call__() takes 1 positional argument but 3 were given
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
   File "game/script.rpy", line 64, in script
-    call screen dragKitchen
-  File "/Users/Shreya/renpy-8.3.4-sdk/renpy/ast.py", line 1980, in execute
-    self.call("execute")
-  File "/Users/Shreya/renpy-8.3.4-sdk/renpy/ast.py", line 1959, in call
-    return renpy.statements.call(method, parsed, *args, **kwargs)
-  File "/Users/Shreya/renpy-8.3.4-sdk/renpy/statements.py", line 374, in call
-    return method(parsed, *args, **kwargs)
-  File "renpy/common/000statements.rpy", line 671, in execute_call_screen
-    store._return = renpy.call_screen(name, *args, **kwargs)
-  File "/Users/Shreya/renpy-8.3.4-sdk/renpy/exports/statementexports.py", line 345, in call_screen
-    rv = renpy.ui.interact(mouse="screen", type="screen", roll_forward=roll_forward)
+    "Maya went to the kitchen to start her cup of coffee."
+  File "/Users/Shreya/renpy-8.3.4-sdk/renpy/ast.py", line 2579, in execute
+    Say.execute(self)
+  File "/Users/Shreya/renpy-8.3.4-sdk/renpy/ast.py", line 621, in execute
+    renpy.exports.say(who, what, *args, **kwargs)
+  File "/Users/Shreya/renpy-8.3.4-sdk/renpy/exports/sayexports.py", line 132, in say
+    who(what, *args, **kwargs)
+  File "/Users/Shreya/renpy-8.3.4-sdk/renpy/character.py", line 1455, in __call__
+    self.do_display(who, what, cb_args=self.cb_args, dtt=dtt, **display_args)
+  File "/Users/Shreya/renpy-8.3.4-sdk/renpy/character.py", line 1106, in do_display
+    display_say(who,
+  File "/Users/Shreya/renpy-8.3.4-sdk/renpy/character.py", line 803, in display_say
+    rv = renpy.ui.interact(mouse='say', type=type, roll_forward=roll_forward)
   File "/Users/Shreya/renpy-8.3.4-sdk/renpy/ui.py", line 301, in interact
     rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
   File "/Users/Shreya/renpy-8.3.4-sdk/renpy/display/core.py", line 2215, in interact
@@ -46,9 +46,9 @@ Full traceback:
     rv = run(drag.dragged, joined, drop)
   File "/Users/Shreya/renpy-8.3.4-sdk/renpy/display/behavior.py", line 401, in run
     return action(*args, **kwargs)
-TypeError: handle_drop() missing 2 required positional arguments: 'y' and 'dragged'
+TypeError: __call__() takes 1 positional argument but 3 were given
 
 macOS-10.16-x86_64-i386-64bit x86_64
 Ren'Py 8.3.4.24120703
 Separation of Cultures 1.0
-Sat Apr  5 19:44:20 2025
+Sat Apr  5 22:27:19 2025

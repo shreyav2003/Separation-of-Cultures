@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 168: play requires a channel
-    play
-        ^
+File "game/script.rpy", line 44: end of line expected.
+    screen dragKitchen(): imagebutton idle "images/mug.png" action Jump('brewing') pos (0.5, 0.9) anchor (0.5, 1.0)
+                          ^
 
 Ren'Py Version: Ren'Py 8.3.4.24120703
-Sat Apr  5 12:06:47 2025
+Sun Apr  6 09:34:54 2025
