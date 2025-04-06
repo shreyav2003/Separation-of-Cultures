@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 6: invalid syntax
-    Character("Janu" color "#3a1bd1")
-                      ^
+File "game/script.rpy", line 168: play requires a channel
+    play
+        ^
 
 Ren'Py Version: Ren'Py 8.3.4.24120703
-Wed Apr  2 13:25:09 2025
+Sat Apr  5 12:06:47 2025

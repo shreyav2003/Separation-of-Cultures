@@ -1,28 +1,54 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/script.rpy", line 146, in script
-    with Shake((0, 0, 0, 0), 3.0, dist=30)
-  File "game/script.rpy", line 146, in <module>
-    with Shake((0, 0, 0, 0), 3.0, dist=30)
-NameError: name 'Shake' is not defined
+  File "game/script.rpy", line 64, in script
+    call screen dragKitchen
+  File "renpy/common/000statements.rpy", line 671, in execute_call_screen
+    store._return = renpy.call_screen(name, *args, **kwargs)
+TypeError: handle_drop() missing 2 required positional arguments: 'y' and 'dragged'
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/script.rpy", line 146, in script
-    with Shake((0, 0, 0, 0), 3.0, dist=30)
-  File "/Users/Shreya/renpy-8.3.4-sdk/renpy/ast.py", line 1360, in execute
-    trans = renpy.python.py_eval(self.expr)
-  File "/Users/Shreya/renpy-8.3.4-sdk/renpy/python.py", line 1209, in py_eval
-    return py_eval_bytecode(code, globals, locals)
-  File "/Users/Shreya/renpy-8.3.4-sdk/renpy/python.py", line 1202, in py_eval_bytecode
-    return eval(bytecode, globals, locals)
-  File "game/script.rpy", line 146, in <module>
-    with Shake((0, 0, 0, 0), 3.0, dist=30)
-NameError: name 'Shake' is not defined
+  File "game/script.rpy", line 64, in script
+    call screen dragKitchen
+  File "/Users/Shreya/renpy-8.3.4-sdk/renpy/ast.py", line 1980, in execute
+    self.call("execute")
+  File "/Users/Shreya/renpy-8.3.4-sdk/renpy/ast.py", line 1959, in call
+    return renpy.statements.call(method, parsed, *args, **kwargs)
+  File "/Users/Shreya/renpy-8.3.4-sdk/renpy/statements.py", line 374, in call
+    return method(parsed, *args, **kwargs)
+  File "renpy/common/000statements.rpy", line 671, in execute_call_screen
+    store._return = renpy.call_screen(name, *args, **kwargs)
+  File "/Users/Shreya/renpy-8.3.4-sdk/renpy/exports/statementexports.py", line 345, in call_screen
+    rv = renpy.ui.interact(mouse="screen", type="screen", roll_forward=roll_forward)
+  File "/Users/Shreya/renpy-8.3.4-sdk/renpy/ui.py", line 301, in interact
+    rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
+  File "/Users/Shreya/renpy-8.3.4-sdk/renpy/display/core.py", line 2215, in interact
+    repeat, rv = self.interact_core(preloads=preloads, trans_pause=trans_pause, pause=pause, pause_start=pause_start, pause_modal=pause_modal, **kwargs) # type: ignore
+  File "/Users/Shreya/renpy-8.3.4-sdk/renpy/display/core.py", line 3286, in interact_core
+    rv = root_widget.event(ev, x, y, 0)
+  File "/Users/Shreya/renpy-8.3.4-sdk/renpy/display/layout.py", line 1297, in event
+    rv = i.event(ev, x - xo, y - yo, cst)
+  File "/Users/Shreya/renpy-8.3.4-sdk/renpy/display/layout.py", line 1297, in event
+    rv = i.event(ev, x - xo, y - yo, cst)
+  File "/Users/Shreya/renpy-8.3.4-sdk/renpy/display/layout.py", line 1297, in event
+    rv = i.event(ev, x - xo, y - yo, cst)
+  File "/Users/Shreya/renpy-8.3.4-sdk/renpy/display/screen.py", line 791, in event
+    rv = self.child.event(ev, x, y, st)
+  File "/Users/Shreya/renpy-8.3.4-sdk/renpy/display/layout.py", line 1297, in event
+    rv = i.event(ev, x - xo, y - yo, cst)
+  File "/Users/Shreya/renpy-8.3.4-sdk/renpy/display/dragdrop.py", line 1100, in event
+    return super(DragGroup, self).event(ev, x, y, st)
+  File "/Users/Shreya/renpy-8.3.4-sdk/renpy/display/layout.py", line 1297, in event
+    rv = i.event(ev, x - xo, y - yo, cst)
+  File "/Users/Shreya/renpy-8.3.4-sdk/renpy/display/dragdrop.py", line 954, in event
+    rv = run(drag.dragged, joined, drop)
+  File "/Users/Shreya/renpy-8.3.4-sdk/renpy/display/behavior.py", line 401, in run
+    return action(*args, **kwargs)
+TypeError: handle_drop() missing 2 required positional arguments: 'y' and 'dragged'
 
 macOS-10.16-x86_64-i386-64bit x86_64
 Ren'Py 8.3.4.24120703
 Separation of Cultures 1.0
-Wed Apr  2 13:26:02 2025
+Sat Apr  5 19:44:20 2025

@@ -6,7 +6,13 @@ define a = Character("Amma")
 define j = Character("Janu")
 
 # The game starts here.
-
+init python:
+   def drag_placed(drags, drop): 
+       if not drop: 
+           return 
+       store.draggable = drags[0].drag_name
+       store.droppable = drop.drag_name
+       return True
 label start:
     play music "audio/backgroundmusic.mp3"
 
@@ -39,14 +45,30 @@ label kunalBed:
     
     jump kitchen
 
+screen dragKitchen:
+    draggroup:
+        drag:
+            drag_name "mug"
+            child "mug.png"
+            xpos 100 ypos 100
+            draggable True
+            droppable False
 
+        drag:
+            drag_name "coffee"
+            xpos 900 ypos 300
+            child "coffee.png"
+            draggable False
+            droppable True
 label kitchen:
-    scene kitchen
-    with fade
     "Maya went to the kitchen to start her cup of coffee."
+    scene kitchen
+    call screen dragKitchen
 
 
-
+label brewing:
+    scene kitchen 
+    show coffeemug
     "As it was brewing, something caught her eye."
 
     m "Huh? What's this?"
@@ -60,7 +82,7 @@ label fridge:
     scene fridge 
     "There was a note on the fridge from her husband, George."
 
-    "Maya, Janu called again. I told her you would call back later. See you tonight. - George"
+    "Maya, Janu called again. She says she's coming tomorrow I told her you would call back later. See you tonight. - George"
 
     "Maya saw a number at the end of the note."
 
@@ -115,7 +137,7 @@ label phoneCall:
 
     m "You know why. She's always making some comment about me or Kunal. I can't stand it."
 
-    a "She's sick Maya. Nobody else lives in the U.S. What will people think? Call her now."
+    a "She's sick Maya. Nobody else lives in the U.S. What will people think? Call her now. She will be coming tomorrow."
 
     "The phone clicked as her mother hung up."
 
@@ -158,14 +180,21 @@ label fightFlashback:
     j "No! Is this how you're going to raise Kunal? Like a disrespectful American?"
     jump present
 label silentFlashback:
+    scene crochetedbg
+    show janucrocheted
+    "Maya stayed silent. She didn't want to fight with her grandmother."
+    j "Nothing to say Maya?"
+    m "I'm sorry. I have to go, I'll talk to later."
+    "She never called her back."
+    jump present
     
+
 
 label present:
     scene kitchen
     show digiphone
     with dissolve
     "Maya's eyes welled up with tears as she remembered the conversation."
-    play
     j "Hello?"
     m "Janu Pati, it's Maya. How are you?"
     j "I'm glad my granddaughter has finally called her sick grandmother back."
@@ -174,5 +203,10 @@ label present2:
     show digiphone
     with hpunch
     "Maya felt a pang of anger go through her."
+    m "I'm sorry I haven't called back. It's been busy here."
+    j "I'm sure you have been with that so called cooking job."
+    m "Pati, I'm a chef we've been over this. Look, I heard you were coming tomorrow. What time is your flight?"
+    j "I'm coming at 5, Maya. I expect everything to be ready for me."
+    "Maya sighed. A wave of anxiousness flowed through her, as she pondered what to do next."
 
     return
