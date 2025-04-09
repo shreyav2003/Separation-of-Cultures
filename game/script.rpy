@@ -126,6 +126,7 @@ label phoneCall:
 
     "Maya sighed with frustration. She would not hear the end of it if she didn't call her grandmother."
     show phone
+    hide digiphone
     play sound "audio/dial-tone.mp3" loop
 
     "Her fingers trembled as she pressed each number, remembering her Janu Pati's comments..."
