@@ -7,8 +7,6 @@ define j = Character("Janu")
 
 # The game starts here.
 
-
-
 label start:
     play music "audio/backgroundmusic.mp3"
 
@@ -54,13 +52,15 @@ label kitchen:
 label brewing:
     hide screen dragKitchen
     scene kitchen 
-    show coffeemug
+    show coffeemug at truecenter
+    play sound "<from 40 to 50>audio/coffee-perculator.mp3"
     "as it was brewing something on the fridge caught her eye."
     m "Huh? What's this?"
     jump fridge
 
 label fridge:
     stop music fadeout 1.0
+    stop sound
     scene fridge 
     "There was a note on the fridge from her husband, George."
 
@@ -110,8 +110,8 @@ label crumpled:
 
 label phoneCall:
     scene kitchen
-    show maya
     stop sound
+    show digiphone
 
     m "Hello? Amma?"
 
@@ -122,6 +122,7 @@ label phoneCall:
     a "She's sick Maya. Nobody else lives in the U.S. What will people think? Call her now. She will be coming tomorrow."
 
     "The phone clicked as her mother hung up."
+    play sound "audio/phone-click.mp3"
 
     "Maya sighed with frustration. She would not hear the end of it if she didn't call her grandmother."
     show phone
@@ -135,6 +136,7 @@ label phoneCall:
 
 label flashback:
     stop sound
+    play music "audio/tense-journey.mp3" fadein 1.0
     scene crochetbg
     with fade
     show janucrocheted
@@ -162,6 +164,7 @@ label fightFlashback:
     j "No! Is this how you're going to raise Kunal? Like a disrespectful American?"
     jump present
 label silentFlashback:
+    stop music
     scene crochetedbg
     show janucrocheted
     "Maya stayed silent. She didn't want to fight with her grandmother."
@@ -175,6 +178,7 @@ label silentFlashback:
 label present:
     scene kitchen
     show digiphone
+    stop music
     with dissolve
     "Maya's eyes welled up with tears as she remembered the conversation."
     j "Hello?"
