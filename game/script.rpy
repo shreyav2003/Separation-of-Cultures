@@ -194,6 +194,7 @@ label present2:
     j "I'm sure you have been with that so called cooking job."
     m "Pati, I'm a chef we've been over this. Look, I heard you were coming tomorrow. What time is your flight?"
     j "I'm coming at 5, Maya. I expect everything to be ready for me."
+    play music "audio/sadmusic.mp3" fadein 1.0
     "Maya sighed. A wave of anxiousness flowed through her, as she pondered what to do next."
 
     return
